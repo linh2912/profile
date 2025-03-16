@@ -1,0 +1,549 @@
+/* Preloader */
+
+.preloader {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: var(--background-color);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    transition: opacity 0.5s, visibility 0.5s;
+}
+
+.preloader.hide {
+    opacity: 0;
+    visibility: hidden;
+}
+
+.loader {
+    width: 50px;
+    height: 50px;
+    border: 5px solid var(--border-color);
+    border-top-color: var(--primary-color);
+    border-radius: 50%;
+    animation: spin 1s infinite linear;
+}
+
+@keyframes spin {
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+
+/* Fade In Animation */
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+
+/* Scale Animation */
+
+@keyframes scale {
+    from {
+        transform: scale(0.8);
+    }
+    to {
+        transform: scale(1);
+    }
+}
+
+
+/* Slide Animations */
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100px);
+        opacity: 0;
+    }
+    to {
+        transform: translateX(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInUp {
+    from {
+        transform: translateY(50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+@keyframes slideInDown {
+    from {
+        transform: translateY(-50px);
+        opacity: 0;
+    }
+    to {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+
+/* Button Hover Animation */
+
+.button {
+    position: relative;
+    overflow: hidden;
+}
+
+.button::after {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: -100%;
+    background: linear-gradient( 90deg, rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.3), rgba(255, 255, 255, 0.1));
+    transition: 0.5s;
+}
+
+.button:hover::after {
+    left: 100%;
+}
+
+
+/* Skills Icon Animation */
+
+.skills-item {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.skills-item.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.skills-item:hover i {
+    transform: scale(1.2) rotate(360deg);
+    transition: transform 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+
+/* Project Card Animation */
+
+.project-card {
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.project-card.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.project-card:hover {
+    transform: translateY(-10px) scale(1.02);
+}
+
+.project-card img {
+    transition: transform 0.5s ease;
+}
+
+.project-card:hover img {
+    transform: scale(1.05);
+}
+
+
+/* Form Input Animation */
+
+.form-group input,
+.form-group textarea {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    background: var(--background-alt);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    background: var(--background-color);
+    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-group input:hover,
+.form-group textarea:hover {
+    background: var(--background-color);
+}
+
+
+/* Navigation Link Animation */
+
+.nav-link {
+    position: relative;
+}
+
+.nav-link::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -4px;
+    left: 0;
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.nav-link:hover::after,
+.nav-link.active::after {
+    width: 100%;
+}
+
+
+/* Social Links Animation */
+
+.home-social-link {
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.home-social-link:hover {
+    transform: translateY(-5px);
+    color: var(--primary-color);
+}
+
+
+/* Section Title Animation */
+
+.section-title {
+    position: relative;
+    display: inline-block;
+    opacity: 0;
+    transform: translateY(30px);
+    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.section-title::after {
+    content: '';
+    position: absolute;
+    width: 50px;
+    height: 3px;
+    bottom: -10px;
+    left: 50%;
+    transform: translateX(-50%);
+    background-color: var(--primary-color);
+    transition: width 0.3s ease;
+}
+
+.section-title:hover::after {
+    width: 100px;
+}
+
+.section-title.visible {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+
+/* Mobile Menu Animation */
+
+.nav-menu {
+    position: fixed;
+    top: 0;
+    right: -100%;
+    width: 70%;
+    height: 100vh;
+    background-color: var(--background-color);
+    padding: 4rem 0 0 3rem;
+    transition: right 0.5s cubic-bezier(0.65, 0, 0.35, 1);
+    box-shadow: -2px 0 10px rgba(0, 0, 0, 0.1);
+}
+
+.nav-menu.show-menu {
+    right: 0;
+}
+
+.nav-list li {
+    opacity: 0;
+    transform: translateX(50px);
+    transition: all 0.4s ease;
+}
+
+.nav-menu.show-menu .nav-list li {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.nav-menu.show-menu .nav-list li:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.nav-menu.show-menu .nav-list li:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.nav-menu.show-menu .nav-list li:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.nav-menu.show-menu .nav-list li:nth-child(4) {
+    transition-delay: 0.4s;
+}
+
+.nav-menu.show-menu .nav-list li:nth-child(5) {
+    transition-delay: 0.5s;
+}
+
+
+/* Animate Elements on Load */
+
+.home-title,
+.home-subtitle,
+.home-description,
+.home-buttons,
+.home-social {
+    animation: fadeIn 1s ease forwards;
+    opacity: 0;
+}
+
+.home-subtitle {
+    animation-delay: 0.2s;
+}
+
+.home-description {
+    animation-delay: 0.4s;
+}
+
+.home-buttons {
+    animation-delay: 0.6s;
+}
+
+.home-social {
+    animation-delay: 0.8s;
+}
+
+
+/* Contact Form Slide Animation */
+
+.contact-form .form-group {
+    opacity: 0;
+    transform: translateX(30px);
+    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.contact-form .form-group.visible {
+    opacity: 1;
+    transform: translateX(0);
+}
+
+.contact-form .form-group:nth-child(1) {
+    transition-delay: 0.1s;
+}
+
+.contact-form .form-group:nth-child(2) {
+    transition-delay: 0.2s;
+}
+
+.contact-form .form-group:nth-child(3) {
+    transition-delay: 0.3s;
+}
+
+.contact-form button {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    transition: all 0.3s ease;
+}
+
+.contact-form button i {
+    transform: translateX(-20px);
+    opacity: 0;
+    transition: all 0.3s ease;
+}
+
+.contact-form button:hover i {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+.contact-form button:hover .button-text {
+    transform: translateX(-10px);
+}
+
+.contact-form .button-text {
+    transition: transform 0.3s ease;
+}
+
+.form-group input,
+.form-group textarea {
+    transition: all 0.3s ease;
+    border: 2px solid transparent;
+    background: var(--background-alt);
+}
+
+.form-group input:focus,
+.form-group textarea:focus {
+    border-color: var(--primary-color);
+    background: var(--background-color);
+    box-shadow: 0 0 0 4px rgba(74, 144, 226, 0.1);
+    transform: translateY(-2px);
+}
+
+.form-group input:hover,
+.form-group textarea:hover {
+    background: var(--background-color);
+}
+
+@keyframes shake {
+    0%,
+    100% {
+        transform: translateX(0);
+    }
+    25% {
+        transform: translateX(-10px);
+    }
+    75% {
+        transform: translateX(10px);
+    }
+}
+
+.form-group.error input,
+.form-group.error textarea {
+    border-color: #ff4444;
+    animation: shake 0.5s ease;
+}
+
+@keyframes success {
+    from {
+        transform: scale(0.8);
+        opacity: 0;
+    }
+    to {
+        transform: scale(1);
+        opacity: 1;
+    }
+}
+
+.contact-form.success button {
+    background-color: #22c55e;
+    pointer-events: none;
+}
+
+.contact-form.success button i {
+    transform: translateX(0);
+    opacity: 1;
+}
+
+
+/* Zalo Icon Animation */
+
+.zalo-link {
+    position: relative;
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.zalo-icon {
+    width: 1.25em;
+    height: 1.25em;
+    transition: transform 0.3s ease, color 0.3s ease;
+}
+
+.zalo-link:hover .zalo-icon {
+    transform: scale(1.2) rotate(360deg);
+    color: var(--primary-color);
+}
+
+.zalo-link::before {
+    content: '';
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    border-radius: 50%;
+    background: rgba(74, 144, 226, 0.1);
+    transform: scale(0);
+    transition: transform 0.3s ease;
+}
+
+.zalo-link:hover::before {
+    transform: scale(1.5);
+}
+
+@keyframes pulseZalo {
+    0% {
+        box-shadow: 0 0 0 0 rgba(74, 144, 226, 0.4);
+    }
+    70% {
+        box-shadow: 0 0 0 10px rgba(74, 144, 226, 0);
+    }
+    100% {
+        box-shadow: 0 0 0 0 rgba(74, 144, 226, 0);
+    }
+}
+
+.zalo-link {
+    animation: pulseZalo 2s infinite;
+}
+
+
+/* Role Tags Animation */
+
+.role-tag {
+    animation: fadeInUp 0.6s ease forwards;
+    opacity: 0;
+}
+
+.role-tag:nth-child(1) {
+    animation-delay: 0.3s;
+}
+
+.role-tag:nth-child(2) {
+    animation-delay: 0.5s;
+}
+
+.role-tag:nth-child(3) {
+    animation-delay: 0.7s;
+}
+
+@keyframes fadeInUp {
+    from {
+        opacity: 0;
+        transform: translateY(20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+.role-tag i {
+    transition: transform 0.3s ease;
+}
+
+.role-tag:hover i {
+    transform: rotate(360deg);
+}
