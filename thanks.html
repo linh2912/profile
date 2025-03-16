@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Thank You - Message Sent</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="css/animations.css">
+    <style>
+        .thanks-container {
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            text-align: center;
+            padding: 2rem;
+        }
+        
+        .thanks-content {
+            max-width: 600px;
+            animation: fadeIn 1s ease;
+        }
+        
+        .thanks-icon {
+            font-size: 4rem;
+            color: var(--primary-color);
+            margin-bottom: 1rem;
+        }
+        
+        .thanks-title {
+            font-size: 2rem;
+            margin-bottom: 1rem;
+            color: var(--secondary-color);
+        }
+        
+        .thanks-message {
+            margin-bottom: 2rem;
+            color: var(--text-color-light);
+        }
+        
+        .return-button {
+            display: inline-flex;
+            align-items: center;
+            gap: 0.5rem;
+        }
+        
+        .return-button i {
+            transition: transform 0.3s ease;
+        }
+        
+        .return-button:hover i {
+            transform: translateX(-5px);
+        }
+    </style>
+</head>
+
+<body>
+    <div class="thanks-container">
+        <div class="thanks-content">
+            <i class="fas fa-check-circle thanks-icon"></i>
+            <h1 class="thanks-title">Thank You!</h1>
+            <p class="thanks-message">Your message has been sent successfully. I will get back to you as soon as possible.</p>
+            <a href="index.html" class="button return-button">
+                <i class="fas fa-arrow-left"></i>
+                <span>Return to Homepage</span>
+            </a>
+        </div>
+    </div>
+</body>
+
+</html>
